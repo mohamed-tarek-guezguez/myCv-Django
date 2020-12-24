@@ -1,0 +1,49 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row sticky-parent">
+	<!-- Sidebar nav -->
+	<aside class="col-12 col-md-12 col-lg-2">
+		<div class="sidebar box sticky-column">
+			<ul class="nav">
+				<li class="nav__item"><a href="{% url 'homePage' %}"><i class="icon-user"></i>About</a></li>
+				<li class="nav__item"><a href="{% url 'resumePage' %}"><i class="icon-file-text"></i>Resume</a></li>
+				<li class="nav__item"><a class="active" href="{% url 'certifPage' %}"><i class="icon-codesandbox"></i>Certif</a></li>
+				<li class="nav__item"><a href="{% url 'contactPage' %}"><i class="icon-book"></i>Contact</a></li>
+			</ul>
+		</div>
+	</aside>
+
+<!-- Content -->
+<div class="col-12 col-md-12 col-lg-10">
+	<div class="box box-content">
+		<div class="pb-2">
+			<h1 class="title title--h1 first-title title__separate">Certifications</h1>
+		</div>
+
+		<div class="pb-0">
+			<!-- Gallery -->
+			<div class="gallery-grid js-grid-row js-filter-container">
+				<div class="gutter-sizer"></div>
+
+				{% for c in certif %}
+				<!-- Item  -->
+				<figure class="gallery-grid__item category-concept">
+					<div class="gallery-grid__image-wrap">
+						<img class="gallery-grid__image cover lazyload" src="{{c.Img.url}}" data-zoom="" alt="">
+					</div>
+					<figcaption class="gallery-grid__caption">
+						<h4 class="title title--h6 gallery-grid__title">{{ c.Name }}</h4>
+					</figcaption>
+				</figure>
+				{% endfor %}
+
+			</div><!-- Gallery End -->
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer">© 2019 GuezGuez Med.Tarek</footer>
+</div>
+{% endblock content %}

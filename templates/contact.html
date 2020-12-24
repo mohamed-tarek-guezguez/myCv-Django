@@ -1,0 +1,61 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row sticky-parent">
+	<!-- Sidebar nav -->
+	<aside class="col-12 col-md-12 col-lg-2">
+		<div class="sidebar box sticky-column">
+			<ul class="nav">
+				<li class="nav__item"><a href="{% url 'homePage' %}"><i class="icon-user"></i>About</a></li>
+				<li class="nav__item"><a href="{% url 'resumePage' %}"><i class="icon-file-text"></i>Resume</a></li>
+				<li class="nav__item"><a href="{% url 'certifPage' %}"><i class="icon-codesandbox"></i>Certif</a></li>
+				<li class="nav__item"><a class="active" href="{% url 'contactPage' %}"><i class="icon-book"></i>Contact</a></li>
+			</ul>
+		</div>
+	</aside>
+
+<!-- Content -->
+<div class="col-12 col-md-12 col-lg-10">
+	<div class="box box-content">
+		<div class="pb-2">
+			<h1 class="title title--h1 first-title title__separate">Contact</h1>
+		</div>
+
+			
+		<form id="contact-form" class="contact-form" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="row">
+				<div class="form-group col-12 col-md-6">
+					<input type="text" class="form-control" id="nameContact" name="nameContact" placeholder="Full name" required="required" autocomplete="on" onkeyup="myNameFunction()" onmouseup="myNameFunction()">
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group col-12 col-md-6">
+					<input type="email" class="form-control" id="emailContactx" name="emailContact" placeholder="Email address" required="required" onkeyup="myEmailFunction()" onmouseup="myEmailFunction()">
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group col-12 col-md-12">
+					<textarea class="textarea form-control" id="messageContact" name="messageContact" placeholder="Your Message" rows="4" required="required" onkeyup="myMessageFunction()" onmouseup="myMessageFunction()"></textarea>
+					<div class="help-block with-errors"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12 col-md-6 order-2 order-md-1 text-center text-md-left">
+					<div id="validator-contact" class="hidden"></div>
+				</div>
+				<div class="col-12 col-md-6 order-1 order-md-2 text-right" onclick="document.getElementById('contact-form').submit()">
+					<button type="submit" class="btn"><i class="font-icon icon-send"></i> Send Message</button>
+				</div>
+			</div>
+
+			<div style="display: none;">
+				{{ form.as_p }}
+			</div>
+
+		</form>
+	</div>
+	<br><br>
+	<!-- Footer -->
+	<footer class="footer">© 2020 GuezGuez Med.Tarek</footer>
+</div>
+{% endblock content %}
