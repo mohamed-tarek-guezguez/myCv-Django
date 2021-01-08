@@ -1,1 +1,0 @@
-web: gunicorn myProCv.wsgi --log-file -
