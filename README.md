@@ -4,7 +4,6 @@ Youtube / https://youtu.be/wZtiU7cmafY
 
 Link / http://guezguez-tarek.me/
 <br>
-Link / http://145.239.168.123/
 
 <img src="img/1.JPG">
 <br>
